@@ -772,7 +772,7 @@ async function submitEntry(e){
 
   // =====================================================
   // ▼▼▼ הדבק כאן את ה-URL מ-Power Automate ▼▼▼
-  const FLOW_URL = 'https://script.google.com/macros/s/AKfycbzNJYa5VB7SjaKZg2-YEVXQauiO9JVvOPalICOUkioErMuGbauFxKfIfQrGO37Svu15YQ/exec';
+  const FLOW_URL = 'https://script.google.com/macros/s/AKfycbzBLM719iSiaeT8HV-N2ODiskXF7iAENcfdvnEGt31HSYmjJnx5e_I1fZSKkwVIvqzrgA/exec';
   // ▲▲▲ זה כל מה שצריך לשנות ▲▲▲
   // =====================================================
 
@@ -781,12 +781,12 @@ async function submitEntry(e){
   btn2.querySelector('.btn-inner').innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg> שולח...';
 
   try {
-    const res = await fetch(FLOW_URL, {
+    await fetch(FLOW_URL, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      mode: 'no-cors',
+      headers: { 'Content-Type': 'text/plain' },
       body: JSON.stringify(row)
     });
-    if (!res.ok) throw new Error('HTTP ' + res.status);
   } catch(err) {
     btn2.disabled = false;
     btn2.querySelector('.btn-inner').innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> שלח תקלה';
