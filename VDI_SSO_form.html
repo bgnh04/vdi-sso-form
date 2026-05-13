@@ -815,8 +815,12 @@ function resetForm(){
   document.getElementById('f-time').value = '5';
   document.getElementById('f-pool').innerHTML = '<option value="">בחר רשת קודם</option>';
   document.querySelectorAll('.field.error').forEach(el => el.classList.remove('error'));
+  const btn2 = document.getElementById('submit-btn');
+  btn2.disabled = false;
+  btn2.querySelector('.btn-inner').innerHTML = '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><line x1="22" y1="2" x2="11" y2="13"/><polygon points="22 2 15 22 11 13 2 9 22 2"/></svg> שלח תקלה';
   initDateTime();
 }
+
 
 initDateTime();
 loadAgent();
